@@ -110,6 +110,22 @@ fn draw_block(framebuffer: &mut FrameBuffer, x: isize, y: isize) {
         framebuffer.point(x + dx, y + dy);
     }
   }
+
+  fn initialize_random_patterns(framebuffer: &mut FrameBuffer) {
+    let mut rng = rand::thread_rng();
+    let patterns = [
+        draw_block, draw_beehive, draw_blinker, draw_loaf, draw_boat,
+        draw_tub, draw_pulsar, draw_penta_decathlon, draw_hwss, draw_mwss
+    ];
+  
+    for _ in 0..300 {
+        let idx = rng.gen_range(0..patterns.len());
+        let pattern = patterns[idx];
+        let x = rng.gen_range(0..=framebuffer.width as isize - 15);
+        let y = rng.gen_range(0..=framebuffer.height as isize - 15);
+        pattern(framebuffer, x, y);
+    }
+  }
   
         
 fn main() {
