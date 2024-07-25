@@ -22,6 +22,13 @@ fn draw_block(framebuffer: &mut FrameBuffer, x: isize, y: isize) {
         framebuffer.point(x + dx, y + dy);
     }
   }
+
+  fn draw_blinker(framebuffer: &mut FrameBuffer, x: isize, y: isize) {
+    let positions = [(0, 0), (1, 0), (2, 0)];
+    for &(dx, dy) in &positions {
+        framebuffer.point(x + dx, y + dy);
+    }
+  }
   
   
 fn main() {
