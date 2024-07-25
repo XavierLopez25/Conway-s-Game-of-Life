@@ -9,6 +9,13 @@ fn render(framebuffer: &mut FrameBuffer) {
     framebuffer.update_game_of_life();
 }
 
+fn draw_block(framebuffer: &mut FrameBuffer, x: isize, y: isize) {
+    let positions = [(0, 0), (1, 0), (0, 1), (1, 1)];
+    for &(dx, dy) in &positions {
+        framebuffer.point(x + dx, y + dy);
+    }
+  }
+  
 fn main() {
     let window_width = 1200;
     let window_height = 800;
