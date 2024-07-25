@@ -43,7 +43,14 @@ fn draw_block(framebuffer: &mut FrameBuffer, x: isize, y: isize) {
         framebuffer.point(x + dx, y + dy);
     }
   }
-    
+
+  fn draw_tub(framebuffer: &mut FrameBuffer, x: isize, y: isize) {
+    let positions = [(1, 0), (0, 1), (2, 1), (1, 2)];
+    for &(dx, dy) in &positions {
+        framebuffer.point(x + dx, y + dy);
+    }
+  }
+      
   
 fn main() {
     let window_width = 1200;
