@@ -146,6 +146,7 @@ fn main() {
         WindowOptions::default(),
     ).unwrap();
 
+    initialize_random_patterns(&mut framebuffer);
 
     while window.is_open() {
         if window.is_key_down(Key::Escape) {
