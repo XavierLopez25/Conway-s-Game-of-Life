@@ -69,8 +69,25 @@ fn draw_block(framebuffer: &mut FrameBuffer, x: isize, y: isize) {
         framebuffer.point(x + dx, y + dy);
     }
   }
-        
+
+  fn draw_penta_decathlon(framebuffer: &mut FrameBuffer, x: isize, y: isize) {
+    let positions = [
+        (1, 0), (2, 0),
+        (0, 1), (3, 1),
+        (0, 2), (3, 2),
+        (1, 3), (2, 3),
+        (1, 4), (2, 4),
+        (1, 5), (2, 5),
+        (0, 6), (3, 6),
+        (0, 7), (3, 7),
+        (1, 8), (2, 8)
+    ];
+    for &(dx, dy) in &positions {
+        framebuffer.point(x + dx, y + dy);
+    }
+  }
   
+        
 fn main() {
     let window_width = 1200;
     let window_height = 800;
